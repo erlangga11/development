@@ -5,9 +5,8 @@ class Table extends CI_Controller {
     
     public function index()
 	{
-		$this->load->view('template/sidebar');
-		$this->load->view('tablewo');
-		$this->load->view('template/js');
+		$data = array('content'=>'wo/table');
+		$this->load->view('template/sidebar',$data);
 	}
 
 }

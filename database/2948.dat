@@ -1,0 +1,50 @@
+AA	Planning Process
+PC	Catalogue / Ro Process
+PH	Owner Estimate Price (Hps) Process
+PL	Logistic/Procurement Process
+PR	Part/Mat/Tools Receiving Process
+RS	Reschedule
+WA	Waiting For Engineering Analysis
+WC	Waiting For Coordination
+WD	Waiting For Derating
+WE	Waiting For Equipment Shutdown
+WI	Waiting For Investigation
+WM	Waiting For Material Delivery
+WO	Waiting For Tools
+WP	Waiting For Part Delivery
+WR	Waiting For Resource
+WS	Waiting For Shutdown
+WT	Waiting For Running Test
+WV	Waiting For Service
+WW	Waiting For Contractor/Warranty
+XA	Execution Process/In Progress
+XE	Engineering/Project/Modification Ke Uhar
+XR	Repair Ke Uhar
+YY	Waiting For Job Card Feedback
+ZZ	Closed (Compl, Partl, Duplct, Not Done)
+WAPPR	Waiting on Approval
+WSCH	Waiting to be Scheduled
+INPRG	In Progress
+APPR	Approved
+CAN	Canceled
+CLOSE	Closed
+COMP	Completed
+WPCOND	Waiting on Plant Cond
+HISTEDIT	Edited in History
+WMATL	Waiting on Material
+WPTW	Waiting for Permit to Work
+WENG	Waiting For Engineering Analysis
+WEQSHUT	Waiting for Equipment Shutdown
+WOUTAGE	Waiting for Outage
+WPROC	Waiting for Procurement
+INPLN	In Planning
+WUNSHUT	Waiting Unit Shutdown
+PTWCL	PTW Clearance
+PTWR	PTW Release
+WJOBCARD	Waiting For Job Card Feedback
+INPLAN	In Planning
+WMATSHUT	Waiting Material & Shutdown
+WTOOL	Waiting for Tools
+\.
+
+

@@ -1,0 +1,39 @@
+1	1	Unit #1	UJIN
+2	2	Unit #2	UJIN
+3	3	Unit #3	UJIN
+4	0	Common	UJIN
+5	1	Unit #1	UJRB
+6	2	Unit #2	UJRB
+7	0	Common	UJRB
+8	1	Unit #1	UJPC
+9	2	Unit #2	UJPC
+10	0	Common	UJPC
+11	1	Unit #1	UJTA
+12	2	Unit #2	UJTA
+13	0	Common	UJTA
+14	9	Unit #9	UJPT
+15	1	Unit #1	SPTN
+16	2	Unit #2	SPTN
+17	0	Common	SPTN
+18	1	Unit #1	UCRT
+19	2	Unit #2	UCRT
+20	3	Unit #3	UCRT
+21	4	Unit #4	UCRT
+22	5	Unit #5	UCRT
+23	6	Unit #6	UCRT
+24	7	Unit #7	UCRT
+25	8	Unit #8	UCRT
+26	0	Common	UCRT
+27	1	Unit #1	UJPS
+28	2	Unit #2	UJPS
+29	0	Common	UJPS
+30	1	Unit #1	UJKT
+31	2	Unit #2	UJKT
+32	0	Common	UJKT
+33	1	Unit #1	UJTY
+34	2	Unit #2	UJTY
+35	0	Common	UJTY
+36	0	Common	UJPT
+\.
+
+

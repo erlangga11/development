@@ -1,0 +1,14 @@
+1	2021-05-18 08:32:04	SHIP UNLOADER #1	HIJAU	HIJAU	HIJAU	HIJAU	HIJAU		
+2	2021-05-18 08:32:04	SHIP UNLOADER #2	HIJAU	N/A	HIJAU	N/A	HIJAU		
+3	2021-05-18 08:32:04	STACKER RECLAIMER#1	HIJAU	HIJAU	KUNING	HIJAU	HIJAU	\n#RMB--> Mode Stacking Tidak StandBy==>proses perbaikan seal hydraulic piston. Saat ini di lock menggunakan chainblock.Proses loading & unloading masih beroperasi dengan pemantauan.                            \n#PTN 9--> Tidak bisa slewing ke kiri. Waiting bearing slewing (est.juni 2021)	\n#RMB-->M4 Mei 2021\n#PTN 9--> Juni 2021
+4	2021-05-18 08:32:04	STACKER RECLAIMER#2	HIJAU	N/A	N/A	N/A	HIJAU		
+5	2021-05-18 08:32:04	CONVEYOR UNLOADING	HIJAU	HIJAU	HIJAU	HIJAU	HIJAU		
+6	2021-05-18 08:32:04	CONVEYOR LOADING	HIJAU	HIJAU	HIJAU	HIJAU	HIJAU		
+7	2021-05-18 08:32:04	MECHANICAL SAMPLING	HIJAU	MERAH	KUNING	HIJAU	KUNING	#RBG--> Proses pengadaan  \n#PTN 9--> penggantian  menunggu material selector harusre setting  \n#TJA--> Collector tidak bisa auto Trouble software	#RBG--> Oktober 2021\n#PTN 9--> 15 juli 2021\n#TJA--> 31 Mei 2021
+8	2021-05-18 08:32:04	CRUSHER	HIJAU	MERAH	HIJAU	HIJAU	HIJAU	#RBG--> Crusher 1 : Coupling unbalance==>Rebalancing \nCrusher 2 : proses assembly\n	#RBG--> Juni 2021\n
+9	2021-05-18 08:32:04	MAGNETIC SEPARATOR	HIJAU	KUNING	HIJAU	HIJAU	KUNING	#RBG--> Perbaikan motor \n#PTN9--> 4b belt sobek\n#TJA--> Magnetic Separator C1A , indikasi short circuit, Proses SCM	#RBG--> 31 Juli 2021\n#PTN 9--> 20 Mei 2021\n#TJA--> 30 Juni 2021
+10	2021-05-18 08:32:04	BELT WEIGHER	HIJAU	HIJAU	HIJAU	HIJAU	HIJAU		
+11	2021-05-18 08:32:04	SPRAY WATER SYSTEM	HIJAU	KUNING	HIJAU	HIJAU	HIJAU	#PCT &TJA inprogres upgrade Dust Suppression Tripper tipe WDE(RKAP 2021). #Rembang--> Proses penormalan DSS (Solenoide Valve)	#Pacitan & TJA Menyesuaikan schedule OH unit 2021
+\.
+
+
