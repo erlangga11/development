@@ -15,7 +15,6 @@
     <!-- append theme customizer -->
     <script src="<?php echo base_url(); ?>/lib/js-cookie/js.cookie.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/dashforge.settings.js"></script>
-
-    
+    <script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
   </body>
 </html>
