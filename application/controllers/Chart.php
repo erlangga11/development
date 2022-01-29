@@ -5,8 +5,9 @@ class Chart extends CI_Controller {
     
     public function index()
 	{
-		$data = array('content'=>'chart/chart');
-		$this->load->view('template/sidebar',$data);
+		$this-> load->view('template/sidebar');
+		$this->load->view('chart/chart');
+		$this-> load->view('template/js');
 	}
 
 }

@@ -5,8 +5,9 @@ class Dashboard extends CI_Controller {
     
     public function index()
 	{
-		$data = array('content'=>'dashboard/dashboard');
-		$this->load->view('template/sidebar',$data);
+		$this-> load->view('template/sidebar');
+		$this->load->view('dashboard/dashboard');
+		$this-> load->view('template/js');
 		
 	}
 
