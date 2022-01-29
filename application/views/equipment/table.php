@@ -23,25 +23,28 @@
           </nav>
           <h4 class="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4>
         </div>
-        <div class="row">
-          <div class="col-md">
-            <form action="">
-              
-            </form>
-
-          </div>
-
-        </div>
         <div class="d-none d-md-block">
-          <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="save" class="wd-10 mg-r-5"></i> Save</button>
-          <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="upload" class="wd-10 mg-r-5"></i> Export</button>
-          <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="share-2" class="wd-10 mg-r-5"></i> Share</button>
-          <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="sliders" class="wd-10 mg-r-5"></i> Settings</button>
+          <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="save" class="wd-10 mg-r-5"></i> Export Excel</button>
+          <button onclick="location.href='Equipment/pdf'" class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="upload" class="wd-10 mg-r-5"></i> Export PDF</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <form action="<?php echo base_url('Equipment') ?>" method="POST">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Search keyword.." name="keyword" autocomplete="off" autofocus>
+              <div class="input-group-append">
+                <input class="btn btn-primary" type="submit" name="submit">
+              </div>
+            </div>
+          </form>
         </div>
       </div>
 
       <div class="row row-xs">
         <div class="col-lg-12 col-xl-12">
+          <h5>Result Search : <?php echo $equipment[1] ?></h5>
           <div class="card shadow">
             <div class="card-header bd-b-0 pd-t-20 pd-lg-t-25 pd-l-20 pd-lg-l-25 d-flex flex-column flex-sm-row align-items-sm-start justify-content-sm-between">
               <!-- <div class="card card-dashboard-table"> -->
@@ -58,9 +61,20 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php if (empty($equipment)) { ?>
+                      <tr>
+                        <td colspan="6">
+                          <div class="alert alert-danger" role="alert">
+                           Data Tidak Ditemukan !
+                          </div>
+                        </td>
+                      </tr>
+                    <?php  } ?>
+
+
                     <?php
                     //  $count =1;
-                    foreach ($equipment as $eq) { ?>
+                    foreach ($equipment[0] as $eq) { ?>
                       <tr>
                         <td><?php echo ++$start ?></td>
                         <td><a href=""><?php echo $eq->equipno ?></a></td>
@@ -73,10 +87,10 @@
 
                   </tbody>
                 </table>
-                
-                    <!--Tampilkan pagination-->
-                    <?php echo $this->pagination->create_links(); ?>
-            
+
+                <!--Tampilkan pagination-->
+                <?php echo $this->pagination->create_links(); ?>
+
               </div><!-- table-responsive -->
               <!-- </div>card -->
             </div>

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Wo extends CI_Model {
     
-    public function getData()
+    public function getData($limit, $start, $keyword = null)
 	{
 		$this->db->select("*");
 		$this->db->from('wo');

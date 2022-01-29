@@ -9,16 +9,28 @@ class Equipment extends CI_Controller {
 	{
 		//load libary pagination
         $this->load->library('pagination');
- 
+		$this->load->library('session');
+
+		//ambil data keyword
+		if ($this->input->post('submit')) {
+			$data['keyword'] = $this->input->post('keyword');
+			$this->session->set_userdata('keyword', $data['keyword']);
+		} else {
+			$data['keyword'] = $this->session->userdata('keyword');
+		}
+		
         //load the department_model
         $this->load->model('M_Equipment');
-
-		
-		
 		// $view = array('content'=>'equipment/table');
+		$dataSearch = strtoupper($data['keyword']);
+        $var = $this->db->query("SELECT * FROM equipment WHERE diskripsi LIKE ?", '%'.$dataSearch.'%');
 		
-		$config['base_url'] = 'http://localhost/ci_pku_pjb/Equipment/index'; //site url
-        $config['total_rows'] = 3715; //total row
+		$config['base_url'] = base_url('Equipment/index'); //site url
+		// var_dump($var->result()); die;
+		// $this->db->or_like('equipno',$data['keyword']);
+		// $this->db->from('equipment');
+		$config['total_rows'] = $var->num_rows(); //total row
+		// $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 50;  //show record per halaman
 		$config['num_links'] = 5;
 
@@ -50,18 +62,33 @@ class Equipment extends CI_Controller {
 		$config['attributes'] = array('class' => 'page-link');
 
         $this->pagination->initialize($config);
+		
 		$data['start'] = $this->uri->segment(3);
 		// $data['M_Equipment'] = $this->M_Equipment->getRow($config['per_page'],$data['start']);
 		
-		$data['equipment'] = $this->M_Equipment->getData($config['per_page'],$data['start']);
+		$data['equipment'] = $this->M_Equipment->getData($config['per_page'],$data['start'], $dataSearch);
 		// $DATA = array('data_equipment' =>$data['equipment']);
+		// echo "<pre>"; var_dump($data['equipment']); die;
  
-	
 
 
 		$this-> load->view('template/sidebar');
-		$this->load->view('equipment/table', $data);	
+		$this->load->view('equipment/table', $data);
 		$this-> load->view('template/js');
-	}
 
+	}
+	public function pdf()
+	{
+		$this->load->model('M_Equipment');
+		$this->load->library('dompdf_gen');
+		$data['equipment'] = $this->M_Equipment->getPDF();
+		$this->load->view('equipment/laporan_pdf', $data);
+		$paper_size = 'A4';
+		$orientation = 'landscape';
+		$html = $this->output->get_output();
+		$this->dompdf->set_paper($paper_size, $orientation);
+		$this->dompdf->load_html($html);
+		$this->dompdf->render();
+		$this->dompdf->stream("Data_Equipment.pdf", array('Attachment' =>0));
+	}
 }
