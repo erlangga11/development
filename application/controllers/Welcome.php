@@ -38,4 +38,16 @@ class Welcome extends CI_Controller {
 		// $this->load->database();
 		// echo $this->db->count_all('my_table');
 	}
+
+	 function Loaddata () {
+
+		$sql = $this->db->query("
+			select siteid,diskripsi,nilai_wo from equipment
+		")->result();
+
+		echo json_encode($sql);
+
+	 }
+
+	 
 }
