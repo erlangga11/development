@@ -46,9 +46,22 @@
       </div><!-- card-header -->
       <div class="card-body pd-lg-25">
         <div class="row align-items-sm-end">
-          <div class="col-lg-7 col-xl-8">
+        <?php
+                    //  $count =1;
+                    foreach ($equipment as $eq) { ?>
+                      <tr>
+                        
+                        <td><a href=""><?php echo $eq->siteid ?></a></td>
+                        
+                        <!-- <td><?php echo $eq->diskripsi ?></td>
+                        <td><?php echo $eq->nilai_wo ?></td>
+                        <td><?php echo $eq->nilai_pdm ?></td>
+                        <td><?php echo $eq->nilai ?></td> -->
+                      </tr>
+                    <?php } ?>
+          <!-- <div class="col-lg-7 col-xl-8">
             <div class="chart-six"><canvas id="chartBar1"></canvas></div>
-          </div>
+          </div> -->
           <div class="col-lg-5 col-xl-4 mg-t-30 mg-lg-t-0">
             <div class="row">
               <div class="col-sm-6 col-lg-12">

@@ -5,10 +5,6 @@ class M_Equipment extends CI_Model {
     
     public function getData($limit, $start, $keyword = null)
 	{
-		// $this->db->select("*");
-		// $this->db->from('equipment');
-		// $query=$this->db->get();
-		// return $query->result();
         $total_rows = $this->db->affected_rows();
         if ($keyword) {
             $searchResult = $this->db->like('diskripsi',$keyword)->or_like('equipno',$keyword);

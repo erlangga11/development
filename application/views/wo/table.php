@@ -29,14 +29,27 @@
               <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="sliders" class="wd-10 mg-r-5"></i> Settings</button>
             </div>
           </div>
+          <div class="row">
+        <div class="col-md-5">
+          <form action="<?php echo base_url('Wo') ?>" method="POST">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Search keyword.." name="keyword" autocomplete="off" autofocus>
+              <div class="input-group-append">
+                <input class="btn btn-primary" type="submit" name="submit">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
           <div class="row row-xs">  
             <div class="col mg-t-10">
+            <h5>Result Search : <?php echo $wo[1] ?></h5>
               <!-- <div class="card card-dashboard-table"> -->
                 <div class="table-responsive">
                 <table class="table table-striped">
                 <thead class="thead-dark">
                       <tr>
-                        
+                        <th>No</th>                       
                         <th>Assetnum</th>
                         <th>Wonum</th>                      
                         <th>Wodesc</th>
@@ -49,10 +62,20 @@
                       </tr>                     
                     </thead>
                     <tbody>
+                    <?php if (empty($wo)) { ?>
+                      <tr>
+                        <td colspan="6">
+                          <div class="alert alert-danger" role="alert">
+                           Data Tidak Ditemukan !
+                          </div>
+                        </td>
+                      </tr>
+                    <?php  } ?>
                     <?php
-                        // $count =0;
-                        foreach ($data_wo as $wo){?>
+                        
+                        foreach ($wo[0] as $wo){?>
                           <tr>
+                            <td><?php echo ++$start ?></td>
                             <td><a href=""><?php echo $wo->assetnum ?></a></td>
                             <td><?php echo  $wo->wonum ?></td>
                             <td><?php echo  $wo->wodesc  ?></td>
@@ -68,6 +91,7 @@
                       
                     </tbody>
                   </table>
+                  <?php echo $this->pagination->create_links(); ?>
                 </div><!-- table-responsive -->
               <!-- </div>card -->
             </div><!-- col -->
