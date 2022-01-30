@@ -40,10 +40,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- vendor css -->
     <link href="<?php echo base_url(); ?>/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        
 
     <!-- DashForge CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/dashforge.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/dashforge.dashboard.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   </head>
   <body>
 
