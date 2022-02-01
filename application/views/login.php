@@ -62,20 +62,22 @@
               <h3 class="tx-color-01 mg-b-5">Sign In</h3>
               <p class="tx-color-03 tx-16 mg-b-40">Welcome back! Peta Kesehatan Unit </p>
 
+              <form action = "Authldap" method = "POST">
               <div class="form-group">
-                <label>Email address</label>
-                <input type="email" class="form-control" placeholder="yourname@yourmail.com">
+                <label>Username</label>
+                <input type="email" class="form-control" placeholder="yourname@yourmail.com" name="username" require>
               </div>
               <div class="form-group">
                 <div class="d-flex justify-content-between mg-b-5">
                   <label class="mg-b-0-f">Password</label>
                   <a href="" class="tx-13">Forgot password?</a>
                 </div>
-                <input type="password" class="form-control" placeholder="Enter your password">
+                <input type="password" class="form-control" placeholder="Enter your password" name="password" require>
               </div>
-              <button onclick="location.href='Dashboard'" class="btn btn-brand-02 btn-block">Sign In</button>
+              <button class="btn btn-brand-02 btn-block">Sign In</button>
             </div>
           </div><!-- sign-wrapper -->
+              </form>
         </div><!-- media -->
       </div><!-- container -->
     </div><!-- content -->
