@@ -62,7 +62,7 @@
               <h3 class="tx-color-01 mg-b-5">Sign In</h3>
               <p class="tx-color-03 tx-16 mg-b-40">Welcome back! Peta Kesehatan Unit </p>
 
-              <form action = "Authldap" method = "POST">
+              <form action = "<?= Base_url() ?>loginacc" method = "POST">
               <div class="form-group">
                 <label>Username</label>
                 <input type="email" class="form-control" placeholder="yourname@yourmail.com" name="username" require>
