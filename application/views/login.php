@@ -62,19 +62,19 @@
               <h3 class="tx-color-01 mg-b-5">Sign In</h3>
               <p class="tx-color-03 tx-16 mg-b-40">Welcome back! Peta Kesehatan Unit </p>
 
-              <form action = "<?= Base_url() ?>loginacc" method = "POST">
+              <form action = "<?= Base_url() ?>loginacc"  method = "POST" onSubmit="return validate();"> 
               <div class="form-group">
                 <label>Username</label>
-                <input type="email" class="form-control" placeholder="yourname@yourmail.com" name="username" require>
+                <input type="text" class="form-control" placeholder="yourname@yourmail.com" name="username" id="username" >
               </div>
               <div class="form-group">
                 <div class="d-flex justify-content-between mg-b-5">
                   <label class="mg-b-0-f">Password</label>
                   <a href="" class="tx-13">Forgot password?</a>
                 </div>
-                <input type="password" class="form-control" placeholder="Enter your password" name="password" require>
+                <input type="password" class="form-control" placeholder="Enter your password" name="password" id="password" require>
               </div>
-              <button class="btn btn-brand-02 btn-block">Sign In</button>
+              <button class="btn btn-brand-02 btn-block" value ="Login" name="login">Sign In</button>
             </div>
           </div><!-- sign-wrapper -->
               </form>
