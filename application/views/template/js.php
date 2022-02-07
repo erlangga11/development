@@ -7,6 +7,13 @@
     <script src="<?php echo base_url(); ?>/lib/jquery.flot/jquery.flot.stack.js"></script>
     <script src="<?php echo base_url(); ?>/lib/jquery.flot/jquery.flot.resize.js"></script>
 
+    <script src="<?= base_url() ?>/lib/prismjs/prism.js"></script>
+	<script src="<?= base_url() ?>/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="<?= base_url() ?>/lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+	<script src="<?= base_url() ?>/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="<?= base_url() ?>/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
+	<script src="<?= base_url() ?>/lib/select2/js/select2.min.js"></script>
+
     <script src="<?php echo base_url(); ?>/assets/js/dashforge.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/dashforge.aside.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/dashforge.sampledata.js"></script>
@@ -21,5 +28,20 @@
     <script src="<?php echo base_url(); ?>/bostrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>/bostrap/loader.js"></script>
     
+    <script>
+		$(document).ready(function() {
+			$('#dtable').DataTable({
+				language: {
+					searchPlaceholder: 'Search...',
+					sSearch: '',
+					lengthMenu: 'MENU Data',
+				}
+			});
+
+			$('.dataTables_length select').select2({
+				minimumResultsForSearch: Infinity
+			});
+		});
+	</script>
   </body>
 </html>

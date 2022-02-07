@@ -40,6 +40,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- vendor css -->
     <link href="<?php echo base_url(); ?>/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/lib/prismjs/themes/prism-vs.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/lib/select2/css/select2.min.css" rel="stylesheet">
         
 
     <!-- DashForge CSS -->

@@ -2,21 +2,31 @@
 
 class Dynamic_chart_model extends CI_Model
 {
- function fetch_year()
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
+ function fetch_site()
  {
-  $this->db->select('siteid');
-  $this->db->from('equipment');
-  $this->db->group_by('siteid');
-  $this->db->order_by('siteid', 'DESC');
-  return $this->db->get();
+    $data = $this->db->select('siteid')->from('equipment')->
+    group_by("siteid")->order_by('siteid','DESC')->get();
+    // echo "<pre>"; print_r($data->result_array()); die;
+    $data = $data->result();
+
+    return $data;
  }
 
  function fetch_chart_data($siteid)
  {
-  $this->db->where('siteid', $siteid);
-  $this->db->order_by('siteid', 'ASC');
-  return $this->db->get('equipment');
+    
+    $data = $this->db->select('*')->from('equipment')->limit('10')->
+    where('siteid', $siteid)->order_by('siteid','DESC')->get();
+    // echo "<pre>"; print_r($data->result_array()); die;
+    $data = $data->result();
+
+    return $data;
+
  }
 }
-
 ?>

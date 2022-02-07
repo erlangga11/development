@@ -1,40 +1,15 @@
-<div class="content ht-100v pd-0">
-      <div class="content-header">
-        <div class="content-search">
-          <i data-feather="search"></i>
-          <input type="search" class="form-control" placeholder="Search...">
-        </div>
-        <nav class="nav">
-          <a href="" class="nav-link"><i data-feather="help-circle"></i></a>
-          <a href="" class="nav-link"><i data-feather="grid"></i></a>
-          <a href="" class="nav-link"><i data-feather="align-left"></i></a>
-        </nav>
-      </div><!-- content-header -->
-
-      <div class="content-body">
-        <div class="container pd-x-0">
-          <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
-            <div>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                  <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>Dashboard">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">PKU Chart</li>
-                </ol>
-              </nav>
-              <h4 class="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4>
-            </div>
-            <div class="d-none d-md-block">
-              <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="save" class="wd-10 mg-r-5"></i> Save</button>
-              <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="upload" class="wd-10 mg-r-5"></i> Export</button>
-              <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="share-2" class="wd-10 mg-r-5"></i> Share</button>
-              <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="sliders" class="wd-10 mg-r-5"></i> Settings</button>
-            </div>
-          </div>
-          <div class="row row-xs">
   <div class="col-md-6 col-lg-4 col-xl-3 mg-t-10 mg-lg-t-0">
       <div class="card">
         <div class="card-header">
-          <h6 class="mg-b-0">Sessions By Channel</h6>
+        <div class="form-group">
+        <select class="custom-select" name="siteid" id="siteid">
+                <option value="">Select Site</option>
+                <?php foreach($site as $item): ?>
+                    <option value="<?= $item->siteid ?>"><?= $item->diskripsi ?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
+        
         </div><!-- card-header -->
         <div class="card-body pd-lg-25">
           <div class="chart-seven"><canvas id="chartDonut"></canvas></div>
@@ -80,42 +55,25 @@
             <h6 class="mg-b-5">Website Audience Metrics</h6>
             <p class="tx-12 tx-color-03 mg-b-0">Audience to which the users belonged while on the current date range.</p>
           </div>
-          <div class="btn-group mg-t-20 mg-sm-t-0">
-            <button class="btn btn-xs btn-white btn-uppercase">Day</button>
-            <button class="btn btn-xs btn-white btn-uppercase">Week</button>
-            <button class="btn btn-xs btn-white btn-uppercase active">Month</button>
-          </div><!-- btn-group -->
+          <div class="form-group">
+          <select class="custom-select" name="unitid" id="unitid">
+            <option></option>
+            </select>
+          </div>
+          
         </div><!-- card-header -->
         <div class="card-body pd-lg-25">
           <div class="row align-items-sm-end">
             <div class="col-lg-7 col-xl-8">
-              <div class="chart-six"><canvas id="chartBar1"></canvas></div>
+            <canvas id="pkuChart"></canvas>
             </div>          
           </div>
         </div><!-- card-body -->
       </div><!-- card -->
     </div>
   </div><!-- row -->
-</div><!-- container -->
 
-          </div>
           
-        </div>
-      </div><!-- card-body -->
-    </div><!-- card -->
-  </div>
-  
-  
-</div><!-- row -->
-         
-
-        </div><!-- container -->
-      </div>
-    </div>
-          
-
-
-
 
 
 

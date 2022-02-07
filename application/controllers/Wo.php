@@ -2,80 +2,70 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Wo extends CI_Controller {
+
+	public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('M_Wo');
+    }
+    
     
     public function index()
-	{
-		//load libary pagination
-		$this->load->library('pagination');
-		$this->load->library('session');
+    {
+		$wo = $this->M_Wo->getData();
+        // $data['content'] = 'dashboard/index';
+        $data = array(
+            'wo' => $wo,
+            'content' => 'wo/table',
+			'section' => 'wo/generatepdf'
+        );
+        // $data['token'] = $this->security->get_csrf_hash();
+        // echo "<pre>"; print_r($data); die;
+        
+        // echo "<pre>"; print_r($data['equipment']); die;
+        $this->load->view('layouts/base', $data);
+    }
 
-		//ambil data keyword
-		if ($this->input->post('submit')) {
-			$data['keyword'] = $this->input->post('keyword');
-			$this->session->set_userdata('keyword', $data['keyword']);
-		} else {
-			$data['keyword'] = $this->session->userdata('keyword');
-		}
-		//load the department_model
-		$this->load->model('M_Wo');
-		// $view = array('content'=>'equipment/table');
-		$dataSearch = strtoupper($data['keyword']);
-		$var = $this->db->query("SELECT * FROM wo WHERE wodesc LIKE ?", '%' . $dataSearch . '%');
-
-		$config['base_url'] = base_url('Wo/index'); //site url
-		$config['total_rows'] = $var->num_rows(); //total row
-		$config['per_page'] = 30;  //show record per halaman
-		$config['num_links'] = 5;
-
-		$config['full_tag_open'] = '<nav><ul class="pagination justify-content-center"> ';
-		$config['full_tag_close'] = '</ul></nav>';
-
-		$config['first_link'] = 'First';
-		$config['first_tag_open'] = '<li class="page-item">';
-		$config['first_tag_close'] = '</li>';
-
-		$config['last_link'] = 'Last';
-		$config['last_tag_open'] = '<li class="page-item">';
-		$config['last_tag_close'] = '</li>';
-
-		$config['next_link'] = '&raquo';
-		$config['next_tag_open'] = '<li class="page-item">';
-		$config['next_tag_close'] = '</li>';
-
-		$config['prev_link'] = '&laquo';
-		$config['prev_tag_open'] = '<li class="page-item">';
-		$config['prev_tag_close'] = '</li>';
-
-		$config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
-		$config['cur_tag_close'] = '</a></li>';
-
-		$config['num_tag_open'] = '<li class="page-item">';
-		$config['num_tag_close'] = '</li>';
-
-		$config['attributes'] = array('class' => 'page-link');
-
-		$this->pagination->initialize($config);
-
-		$data['start'] = $this->uri->segment(5);
-		$data['wo'] = $this->M_Wo->getData($config['per_page'], $data['start'], $dataSearch);
-
-		$this-> load->view('template/sidebar');
-		$this->load->view('wo/table',  $data);
-		$this-> load->view('template/js');
-	}
-	public function pdf()
-	{
-		$this->load->model('M_Wo');
-		$this->load->library('dompdf_gen');
-		$data['wo'] = $this->M_Wo->getPDF();
-		$this->load->view('wo/laporan_pdf', $data);
-		$paper_size = 'A4';
-		$orientation = 'landscape';
-		$html = $this->output->get_output();
-		$this->dompdf->set_paper($paper_size, $orientation);
-		$this->dompdf->load_html($html);
-		$this->dompdf->render();
-		$this->dompdf->stream("Data_Wo.pdf", array('Attachment' => 0));
-	}
+	public function generatePDF()
+    {
+        $pdf = new \TCPDF();
+        $pdf->AddPage('L', 'mm', 'A3');
+        $pdf->SetFont('', 'B', 10);
+        $pdf->Cell(280, 10, "DAFTAR WO", 0, 1, 'C');
+        $pdf->SetAutoPageBreak(true, 0);
+        // Add Header
+        $pdf->Ln(10);
+        $pdf->SetFont('', 'B', 10);
+        // $pdf->Cell(20, 8, "No", 1, 0, 'C');
+        $pdf->Cell(20, 8, "Asset Num", 1, 0, 'C');
+        $pdf->Cell(20, 8, "Wo Num", 1, 0, 'C');
+        $pdf->Cell(40, 8, "Desc", 1, 0, 'C');
+        $pdf->Cell(30, 8, "WTNUM", 1, 0, 'C');
+        $pdf->Cell(50, 8, "Task Desc", 1, 0, 'C');
+		$pdf->Cell(30, 8, "Priority", 1, 0, 'C');
+		$pdf->Cell(18, 8, "Status", 1, 0, 'C');
+		$pdf->Cell(40, 8, "Report Date", 1, 0, 'C');
+		$pdf->Cell(30, 8, "Worktype", 1, 1, 'C');
+        $pdf->SetFont('', '', 10);
+        $eq = $this->db->get('wo')->result();
+        $no=0;
+        foreach ($eq as $data){
+            $no++;
+            // $pdf->Cell(20,8,$no,1,0, 'C');
+            $pdf->Cell(20,8,$data->assetnum,1,0);
+            $pdf->Cell(20,8,$data->wonum,1,0);
+            $pdf->Cell(40,8,$data->wodesc,1,0);
+            $pdf->Cell(30,8,$data->wtnum,1,0);
+            $pdf->Cell(50,8,$data->taskdesc,1,0);
+			$pdf->Cell(30,8,$data->priority,1,0);
+			$pdf->Cell(18,8,$data->wostatus,1,0);
+			$pdf->Cell(40,8,$data->reportdate,1,0);
+			$pdf->Cell(30,8,$data->worktype,1,1);
+        }
+        $pdf->SetFont('', 'B', 10);
+        // $pdf->Cell(277, 10, "Laporan Pdf Menggunakan Tcpdf, Instalasi Tcpdf Via Composer", 0, 1, 'L');
+        ob_end_clean();
+        $pdf->Output('Laporan-Equipment9.pdf'); 
+    }
 
 }

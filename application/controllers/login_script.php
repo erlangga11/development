@@ -5,6 +5,8 @@ class login_script extends CI_Controller {
 function __construct()
 	{
      date_default_timezone_set('Asia/Jakarta');
+	 $this->load->helper('form'); 
+	 $this->load->helper('url'); 
 	}
 
 public function getip() {

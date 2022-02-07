@@ -3,16 +3,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Dashboard extends CI_Model {
     
+     public function __construct()
+    {
+        parent::__construct();
+        //Do your magic here
+    }
+    
     public function getData()
-	{
-        // echo "<pre>"; var_dump($this->db->select('*')->from('site')->get()->result()); die;
-        // $array = array('nilai_wo <=' => '75', 'nilai_wo >=' => '50');
-        $siteid = $this->db->select('siteid')->from('equipment')->where('nilai_wo < ', '80')->get()->result_array();
-        // echo "<pre>"; print_r($siteid); die;
-		$query = $this->db->query('SELECT (SELECT DISTINCT COUNT(id) FROM equipment WHERE siteid = a.siteid) AS equip FROM site AS a');
-		// $query=$this->db->get();
-        // echo ($query->result_array()); ;
-		return $query->result();		
-	}
+    {
+        $data = $this->db->select('id, siteid, diskripsi')->from('site')->get();
+        $data = $data->result();
+        // echo "<pre>"; print_r($data); die;
+        return $data;
+    }
+
+    public function getSiteDesc()
+    {
+        $data = $this->db->select('diskripsi')->from('site')->get();
+        // $data = $data->result();
+        $data = $data->result_array();
+        $data = array_column($data, 'diskripsi');
+        // echo "<pre>";print_r(json_encode($arr)); die;
+
+        return $data;
+    }
+
+    public function getSiteId()
+    {
+        $data = $this->db->select('siteid')->from('site')->get();
+        // $data = $data->result();
+        $data = $data->result();
+        // $data = array_column($data, 'diskripsi');
+        // echo "<pre>";print_r(json_encode($arr)); die;
+        return $data;
+    }
 }
 

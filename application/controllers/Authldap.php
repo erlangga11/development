@@ -1,8 +1,14 @@
 <?php
-session_start();
 
 class Authldap extends CI_Controller {
 
+
+	public function __construct()
+	{
+	 parent::__construct();
+	 $this->load->model('Dynamic_chart_model');
+	}
+	
 function ldap_auth($nid,$pass)
 {
 	$LDAP_API_URL = "https://login.ptpjb.com/ldap_api/auth_opendj/post";
@@ -29,15 +35,21 @@ function ldap_auth($nid,$pass)
     
 }
 
-function index()
-	{
-        $nid = $this->input->post('username');
-        $pass = $this->input->post('password');
-		if ($this->ldap_auth($nid,$pass)){
-            redirect ('/dashboard','refresh');
-        }else{
-            redirect ('/login','refresh');
-	        }
-        }
+// function index()
+// 	{
+//         $nid = $this->input->post('username');
+//         $pass = $this->input->post('password');
+// 		$chek=$this->ldap_auth($nid,$pass);
+// 		if ($chek['valid']== 1 && $chek['error_message']==NULL){
+//             redirect ('/dashboard','refresh');
+//         }else{
+// 			$data['site_list'] = $this->Dynamic_chart_model->fetch_year();
+// 		$this->load->view('template/sidebar');
+// 		$this->load->view('dashboard/dashboard', $data);
+// 		$this->load->view('template/js');
+	 
+//             //redirect ('/login','refresh');
+// 	        }
+//         }
 }
 ?>					
